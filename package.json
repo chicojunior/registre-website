@@ -1,0 +1,19 @@
+{
+  "name": "registre-website",
+  "version": "0.0.1",
+  "description": "Website of my father's accounting practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chicojunior/registre-website.git"
+  },
+  "author": "Chico Júnior <juniordev2@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chicojunior/registre-website/issues"
+  },
+  "homepage": "https://github.com/chicojunior/registre-website#readme"
+}
