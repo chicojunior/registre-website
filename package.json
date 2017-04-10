@@ -1,19 +1,48 @@
 {
-  "name": "registre-website",
-  "version": "0.0.1",
-  "description": "Website of my father's accounting practice",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chicojunior/registre-website.git"
-  },
-  "author": "Chico Júnior <juniordev2@gmail.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chicojunior/registre-website/issues"
-  },
-  "homepage": "https://github.com/chicojunior/registre-website#readme"
+	"name": "registre-website",
+	"version": "0.0.1",
+	"description": "Website of my father's accounting practice",
+	"main": "index.js",
+	"author": "Chico Júnior <juniordev2@gmail.com>",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chicojunior/registre-website.git"
+	},
+	"bugs": {
+		"url": "https://github.com/chicojunior/registre-website/issues"
+	},
+	"homepage": "https://github.com/chicojunior/registre-website#readme",
+	"devDependencies": {
+		"browser-sync": "^2.18.8",
+		"cssnano": "^3.10.0",
+		"cssnano-cli": "^1.0.5",
+		"jquery": "^3.1.1",
+		"node-sass": "^4.5.0",
+		"npm-check": "^5.4.0",
+		"npm-run-all": "^4.0.1",
+		"onchange": "^3.2.1",
+		"uglify-js": "^2.7.5"
+	},
+	"scripts": {
+		"prestart": "npm install",
+		"clean": "rm -rf dist && mkdir dist",
+		"clean:scripts": "rm -rf dist/js/main.js",
+		"sass": "node-sass --output-style compressed -o dist/css src/sass/main.scss",
+		"cssnano": "cssnano dist/css/main.css dist/css/main.min.css",
+		"uglify": "uglifyjs dist/js/main.js -c > dist/js/main.min.js",
+		"serve": "browser-sync start -s dist -f dist",
+		"build:templates": "cp -rf src/*.html dist",
+		"build:styles": "run-s sass",
+		"build:scripts": "cp -rf src/js dist && run-s uglify && run-s clean:scripts",
+		"build:images": "cp -rf src/img dist",
+		"build:fonts": "cp -rf src/fonts dist",
+		"build": "run-s clean build:templates build:styles build:scripts build:images build:fonts",
+		"watch:templates": "onchange 'src/*.html' -- npm run build:templates",
+		"watch:styles": "onchange 'src/sass' -- npm run build:styles",
+		"watch:scripts": "onchange 'src/js' -- npm run build:scripts",
+		"watch:images": "onchange 'src/img' -- npm run build:images",
+		"watch": "run-p watch:templates watch:styles watch:scripts watch:images serve",
+		"start": "run-s build watch"
+	}
 }
