@@ -38,10 +38,10 @@
 		"build:images": "cp -rf src/img dist",
 		"build:fonts": "cp -rf src/fonts dist",
 		"build": "run-s clean build:templates build:styles build:scripts build:images build:fonts",
-		"watch:templates": "onchange 'src/*.html' -- npm run build:templates",
-		"watch:styles": "onchange 'src/sass' -- npm run build:styles",
-		"watch:scripts": "onchange 'src/js' -- npm run build:scripts",
-		"watch:images": "onchange 'src/img' -- npm run build:images",
+		"watch:templates": "onchange \"src/*.html\" -- npm run build:templates",
+		"watch:styles": "onchange \"src/sass\" -- npm run build:styles",
+		"watch:scripts": "onchange \"src/js\" -- npm run build:scripts",
+		"watch:images": "onchange \"src/img\" -- npm run build:images",
 		"watch": "run-p watch:templates watch:styles watch:scripts watch:images serve",
 		"start": "run-s build watch"
 	}
