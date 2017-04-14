@@ -1,0 +1,25 @@
+.maps {
+  width: 100%;
+
+  .land {
+    fill: black;
+    fill-opacity: 1;
+    stroke:white;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+  }
+  path {
+    &:hover {
+      fill: green;
+    }
+  }
+
+  .national {
+    // viewBox: "0 0 500 200"
+  }
+
+  .international {
+    // viewBox: "0 0 500 200"
+  }
+
+}
